@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const host = 'http://localhost:4000';
-// const host = 'https://circul.herokuapp.com';
+// const host = 'http://localhost:4000';
+const host = 'https://circul.herokuapp.com';
 
 /**
  * Defines an axios instance

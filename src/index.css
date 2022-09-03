@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Alef:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=MuseoModerno:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import '~antd/dist/antd.css';
+
+body {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.input-custom {
+  outline: none;
+}
+
+.input-custom:focus-within {
+  outline: 1px solid black !important;
+}
+
+.circul__control {
+  height: 56px !important;
+  max-height: 56px !important;
+  border: 1px solid black !important;
+  border-radius: 10px !important;
+}
+
+.circul__control--is-focused {
+  border: 1px solid black !important;
+  box-shadow: none !important;
+}
+
+.circul__indicator-seperator {
+  background-color: black !important;
+}
+
+.ant-drawer-content {
+  border-radius: 50px 50px 0 0 !important;
+}
+
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  font-family: MuseoModerno, cursive;
+  font-weight: 700;
+  line-height: 24px;
+  font-size: 20.16px;
+  color: black;
+  opacity: 1;
+}
+
+.ant-tabs-tab-btn {
+  font-family: MuseoModerno, cursive;
+  color: black;
+  opacity: 0.5;
+  font-weight: 700;
+  line-height: 24px;
+  font-size: 20.16px;
+}
+
+.ant-tabs-tab-btn:focus {
+  color: black;
+}
+
+.ant-tabs-ink-bar {
+  background-color: black;
+}
+
+.input-inner:focus-visible {
+  outline: none;
+}
+
+.ant-tabs-tab {
+  padding: 12px 0.5rem !important;
+}

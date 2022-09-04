@@ -53,16 +53,6 @@ const EditProfile = ({ user }) => {
   return (
     <div className="flex flex-col gap-y-10 w-full max-w-[368px] mt-10 items-center">
       <ImageUpload imageUrlExt={imageUrl} />
-      {/* <div className="flex flex-col gap-y-2 w-full items-center">
-        <img
-          className="w-[120px] h-[120px] rounded-[50%]"
-          src={imageUrl}
-          alt="avatar"
-        />
-        <span className="text-base font-bold font-Alef leading-4">
-          Change Photo
-        </span>
-      </div> */}
       <form
         onSubmit={submitHandler}
         className="flex flex-col gap-y-10 w-full items-center"

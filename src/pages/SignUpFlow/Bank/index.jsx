@@ -5,6 +5,7 @@
 import React, { useState } from 'react';
 import { Drawer } from 'antd';
 import { useNavigate } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import Select from 'react-select';
 import { SignUpHeader, Input, Button, ModalHeader } from '../../../components';
 import routes from '../../../Routes/routes.const';
@@ -45,14 +46,18 @@ const Bank = () => {
         showBack
         to={routes.signUp.bio}
       />
-      <form
-        onSubmit={(e) =>
-          // eslint-disable-next-line implicit-arrow-linebreak
-          formSubmitHandle(e, accountNumber, setAccountNumber, setVisible)
-        }
-        className="flex flex-col gap-y-[40px] w-full items-center"
-      >
-        {/* <div className="flex flex-col gap-y-2 max-w-[358px] w-full">
+      <AnimatePresence>
+        <motion.form
+          initial={{ x: -300, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ x: -300, opacity: 0 }}
+          onSubmit={(e) =>
+            // eslint-disable-next-line implicit-arrow-linebreak
+            formSubmitHandle(e, accountNumber, setAccountNumber, setVisible)
+          }
+          className="flex flex-col gap-y-[40px] w-full items-center"
+        >
+          {/* <div className="flex flex-col gap-y-2 max-w-[358px] w-full">
           <label
             className="text-lg leading-4 font-bold font-Alef"
             htmlFor="country"
@@ -72,45 +77,46 @@ const Bank = () => {
             value={country}
           />
         </div> */}
-        <div className="flex flex-col gap-y-2 max-w-[358px] w-full">
-          <label
-            className="text-lg leading-4 font-bold font-Alef"
-            htmlFor="bank"
-          >
-            Bank name
-          </label>
-          <Select
-            id="bank"
-            defaultValue={selectedBank}
-            onChange={bankChangeHandler}
-            options={bankOptions}
-            isMulti={false}
-            isLoading={loading}
-            classNamePrefix="circul"
-            className=""
+          <div className="flex flex-col gap-y-2 max-w-[358px] w-full">
+            <label
+              className="text-lg leading-4 font-bold font-Alef"
+              htmlFor="bank"
+            >
+              Bank name
+            </label>
+            <Select
+              id="bank"
+              defaultValue={selectedBank}
+              onChange={bankChangeHandler}
+              options={bankOptions}
+              isMulti={false}
+              isLoading={loading}
+              classNamePrefix="circul"
+              className=""
+              required
+              isSearchable
+              value={selectedBank}
+            />
+          </div>
+          <Input
+            type="text"
+            showLabel
+            label="Account Number"
+            placeholder="0123456789"
             required
-            isSearchable
-            value={selectedBank}
+            value={accountNumber}
+            onChange={(e) => setAccountNumber(e.target.value)}
+            id="account"
           />
-        </div>
-        <Input
-          type="text"
-          showLabel
-          label="Account Number"
-          placeholder="0123456789"
-          required
-          value={accountNumber}
-          onChange={(e) => setAccountNumber(e.target.value)}
-          id="account"
-        />
-        <Button
-          type="submit"
-          loading={submitLoading}
-          disabled={submitLoading}
-          label="Connect"
-          scale={scale}
-        />
-      </form>
+          <Button
+            type="submit"
+            loading={submitLoading}
+            disabled={submitLoading}
+            label="Connect"
+            scale={scale}
+          />
+        </motion.form>
+      </AnimatePresence>
       <Drawer
         title=""
         placement="bottom"

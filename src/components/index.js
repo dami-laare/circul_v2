@@ -4,3 +4,4 @@ export { default as ModalHeader } from './ModalHeader';
 export { default as Button } from './Button';
 export { default as Footer } from './Footer';
 export { default as LottieLoader } from './LottieLoader';
+export { default as Spinner } from './Spinner';

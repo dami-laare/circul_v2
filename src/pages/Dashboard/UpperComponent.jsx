@@ -17,9 +17,9 @@ const UpperComponent = ({ details }) => {
   return (
     <div className="w-full max-w-[368px] flex flex-col items-center gap-y-12">
       <div className="w-full flex flex-col gap-y-4 items-center">
-        {details.imageUrl ? (
+        {window.localStorage.getItem('imageUrl') ? (
           <img
-            src={details.imageUrl}
+            src={window.localStorage.getItem('imageUrl')}
             className="w-[96px] h-[96px] rounded-[50%]"
             alt="avatar"
           />

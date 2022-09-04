@@ -2,7 +2,7 @@
 import React from 'react';
 
 const NoMessages = ({ unread }) => (
-  <div className="w-[80%] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] flex flex-col justify-center items-center gap-y-2">
+  <div className="w-[80%] absolute top-[50vh] left-[50vw] translate-x-[-50%] translate-y-[-50%] flex flex-col justify-center items-center gap-y-2">
     <span className="text-lg font-Museo text-center leading-6 font-bold ">
       No {unread ? 'Tips Yet ' : ''} {unread ? '' : 'Messages Yet'}
     </span>

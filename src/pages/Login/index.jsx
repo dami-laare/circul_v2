@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-wrap-multilines */
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import { BsEyeSlash, BsEye } from 'react-icons/bs';
 import api from '../../api';
 import { Input, SignUpHeader, Button } from '../../components';
@@ -54,40 +55,45 @@ const Login = () => {
   return (
     <div className="flex flex-col px-[35px] py-[70px] gap-y-[56px] w-full">
       <SignUpHeader subTitle="" title="Login" />
-      <form
-        onSubmit={submitHandler}
-        className="flex flex-col gap-y-10 w-full items-center"
-      >
-        <Input
-          id="email"
-          onChange={(e) => setEmail(e.target.value)}
-          type="email"
-          value={email}
-          placeholder="Email"
-        />
-        <Input
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          type={`${passwordVisible ? 'text' : 'password'}`}
-          placeholder="Password"
-          suffix={
-            <button
-              type="button"
-              onClick={() => setPasswordVisible((prev) => !prev)}
-            >
-              {passwordVisible ? <BsEyeSlash /> : <BsEye />}
-            </button>
-          }
-        />
-        <Button
-          type="submit"
-          label="Login"
-          scale={scale}
-          loading={loading}
-          disabled={loading}
-        />
-      </form>
+      <AnimatePresence>
+        <motion.form
+          initial={{ x: -300, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ x: -300, opacity: 0 }}
+          onSubmit={submitHandler}
+          className="flex flex-col gap-y-10 w-full items-center"
+        >
+          <Input
+            id="email"
+            onChange={(e) => setEmail(e.target.value)}
+            type="email"
+            value={email}
+            placeholder="Email"
+          />
+          <Input
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            type={`${passwordVisible ? 'text' : 'password'}`}
+            placeholder="Password"
+            suffix={
+              <button
+                type="button"
+                onClick={() => setPasswordVisible((prev) => !prev)}
+              >
+                {passwordVisible ? <BsEyeSlash /> : <BsEye />}
+              </button>
+            }
+          />
+          <Button
+            type="submit"
+            label="Login"
+            scale={scale}
+            loading={loading}
+            disabled={loading}
+          />
+        </motion.form>
+      </AnimatePresence>
     </div>
   );
 };

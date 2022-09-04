@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 /* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
 import { MdOutlineEmail } from 'react-icons/md';
@@ -29,9 +30,11 @@ const Stats = ({ totalEarnings, analytics, messages }) => (
       </div>
       <div className="flex flex-col w-[50%] h-[134px] py-5 xs:px-5 px-2 border-[0.5px] rounded-[25px] border-secondary-1/50">
         <div className="py-[10px] px-[9px] text-h5 font-bold font-Alef leading-8">
-          {messages.length > 1000
-            ? `${(messages.length / 1000).toFixed(1)}k`
-            : messages.length}
+          {messages.filter((msg) => msg.text?.length > 0).length > 1000
+            ? `${(
+                messages.filter((msg) => msg.text?.length > 0).length / 1000
+              ).toFixed(1)}k`
+            : messages.filter((msg) => msg.text?.length > 0).length}
         </div>
         <div className="flex items-center py-[18px] xs:px-[9px] px-[4px] text-base xs:text-lg font-Alef leading-4 border-t-[0.5px] border-secondary-3 gap-x-3">
           <MdOutlineEmail className="inline text-lg xs:text-h6" />

@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-wrap-multilines */
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import { SignUpHeader, Input, Button } from '../../../components';
 import routes from '../../../Routes/routes.const';
 import notify from '../../../utils/notify';
@@ -57,43 +58,52 @@ const Bio = () => {
         showBack
         to={routes.signUp.roles}
       />
-      <ImageUpload />
-      <form
-        className="flex flex-col gap-y-[56px] w-full items-center"
-        onSubmit={submitHandler}
-      >
-        <div className="flex flex-col gap-y-[40px] w-full">
-          <Input
-            showLabel
-            onChange={(e) => setUsername(e.target.value)}
-            value={username}
-            label="Username"
-            id="username"
-            placeholder="username"
-            prefix={
-              <span className="text-lg font-Alef leading-4">
-                circul.africa/
-              </span>
-            }
-          />
-          <Input
-            type="textarea"
-            onChange={(e) => setBio(e.target.value)}
-            value={bio}
-            showLabel
-            id="bio"
-            label="About"
-            placeholder="What are you creating..."
-          />
-        </div>
-        <Button
-          loading={loading}
-          disabled={loading}
-          label="Continue"
-          type="Submit"
-          scale={scale}
-        />
-      </form>
+      <AnimatePresence>
+        <motion.div
+          initial={{ x: -300, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ x: -300, opacity: 0 }}
+          className="flex flex-col gap-y-[56px] w-full"
+        >
+          <ImageUpload />
+          <form
+            className="flex flex-col gap-y-[56px] w-full items-center"
+            onSubmit={submitHandler}
+          >
+            <div className="flex flex-col gap-y-[40px] w-full">
+              <Input
+                showLabel
+                onChange={(e) => setUsername(e.target.value)}
+                value={username}
+                label="Username"
+                id="username"
+                placeholder="username"
+                prefix={
+                  <span className="text-lg font-Alef leading-4">
+                    circul.africa/
+                  </span>
+                }
+              />
+              <Input
+                type="textarea"
+                onChange={(e) => setBio(e.target.value)}
+                value={bio}
+                showLabel
+                id="bio"
+                label="About"
+                placeholder="What are you creating..."
+              />
+            </div>
+            <Button
+              loading={loading}
+              disabled={loading}
+              label="Continue"
+              type="Submit"
+              scale={scale}
+            />
+          </form>
+        </motion.div>
+      </AnimatePresence>
     </div>
   );
 };

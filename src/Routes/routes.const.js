@@ -16,6 +16,8 @@ const routes = {
     profile: '/profile',
     search: '/search',
     success: '/sign-up/success',
+    singleMessage: '/message/:id',
+    publicProfile: '/:username',
   },
 };
 

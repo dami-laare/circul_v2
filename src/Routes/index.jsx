@@ -14,12 +14,15 @@ import Login from '../pages/Login';
 import Messages from '../pages/Messages';
 import Search from '../pages/Search';
 import Settings from '../pages/Settings';
+import MessageFull from '../pages/Messages/MessageFull';
+import PublicProfile from '../pages/PublicProfile';
 
 const RoutesComponent = () => (
   <Routes>
     <Route index element={<SplashScreen />} />
     <Route path={routes.signUp.welcome} element={<Welcome />} />
     <Route path={routes.signUp.login} element={<Login />} />
+    <Route path={routes.dashboard.publicProfile} element={<PublicProfile />} />
     <Route
       path={routes.signUp.roles}
       element={
@@ -73,6 +76,14 @@ const RoutesComponent = () => (
       element={
         <ProtectedDashboard>
           <Settings />
+        </ProtectedDashboard>
+      }
+    />
+    <Route
+      path={routes.dashboard.singleMessage}
+      element={
+        <ProtectedDashboard>
+          <MessageFull />
         </ProtectedDashboard>
       }
     />

@@ -42,7 +42,7 @@ const MessageCard = ({ message, i, tip }) => {
   };
   return (
     <Link
-      to={`/dashboard/message/${message._id}`}
+      to={`/message/${message._id}`}
       className="w-full h-fit flex flex-col py-7 px-8 gap-y-[19px] hover:text-current"
       style={{
         backgroundColor: message.read && !tip ? 'rgb(83 83 83 / 25%)' : '#FFF',
